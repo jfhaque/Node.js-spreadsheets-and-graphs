@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="styles.css">
+    <script src= "Chart.bundle.min.js"></script>
+
+    
+    <script>
+      /*
+       *     Common functions and definitions
+       */
+      const requestParams = {
+           mode: 'cors',
+           credentials: 'same-origin',
+           headers : {
+               'Accept' : 'application/json',
+               'Content-Type' : 'application/json',
+           },
+      };
+  
+      // creates a n columns by m row of text inputs
+      function makeSpreadSheet( n, m ) {
+          const sheet = document.createElement('div');
+          sheet.setAttribute('class', 'sheet');
+          for( let j = 0 ; j < m ; j++ ) {
+              const row = document.createElement('div');
+              row.setAttribute('class', 'row');
+              for( let i = 0; i < n; i++ ) {
+                  const inp = document.createElement('input');
+                  row.append( inp );
+              }
+              sheet.append( row );
+          }
+          return sheet;
+      }
+  
+      // get a 2D array of the inputs, note this array matches
+      // the row/column organization of the spread sheet
+      function getSheetInputs( element ) {
+          const ssRow = Array.from(element.querySelectorAll('div.row'));
+          const sheet = ssRow.map( (r) => {
+              return Array.from(r.querySelectorAll('input'));
+          });
+          return sheet;
+      }
+  
+      // return a 2D array of values
+      function getValues( sheetInputs ) {
+          return sheetInputs.map( (r) => r.map( (c) => c.value ));
+      }
+  
+      // assumes sizes of inputs and values are the same
+      // set the 2d inputs to the matching values
+      function setValues( sheetInputs, values ) {
+          for( let i=0 ; i < sheetInputs.length; i++ ) {
+              const row = sheetInputs[i];
+              for( let j=0; j < row.length; j++ ) {
+                  row[j].value = values[i][j]; 
+              }
+          }
+      }
+  </script>
+
+
+  </head>
+  <body >
+
+    <div class="topnav">
+
+  
+      <a href="/profile">My Profile</a>
+      <a href="/admin">Admin</a>
+      <a href="/allSheets">All Sheets</a>
+      
+    </div>
+
+    <form id= "new" method="POST">
+      <label>Name: </label>
+      <input type = "text" name= "sheetName" placeholder="name">
+    </br>
+      <label>Number of rows: </label>
+      <input type= "text" id="numberOfRows" placeholder="rows">
+  </br>
+      <label> Number of Columns: </label>
+      <input type= "text" id="numberOfColumns" placeholder="columns">
+</br>
+      <button type= "button" id="but"> Submit </button>
+
+    </form>
+    <div id="spread-sheet">
+      
+    </div>
+    
+    
+    <script>
+      
+      const button= document.getElementById("but");
+      const sSheet= document.querySelector('#spread-sheet');
+      const saveButton= document.createElement("BUTTON");
+      saveButton.innerHTML="SAVE";
+      const csvDisplay= document.querySelector('#csv');
+
+      button.addEventListener("click", function(){
+        const x= document.getElementById("numberOfRows").value;
+         const y= document.getElementById("numberOfColumns").value;
+         const sheet = makeSpreadSheet( y, x );
+      
+      sSheet.append( sheet );
+      sSheet.append(saveButton);
+        });
+
+        saveButton.addEventListener('click', async (evt) => {
+        const name = sheetName.value;
+        if ( name.trim().length === 0 ) return; // ignore if no name
+        const inputs = getSheetInputs( sheet );
+        const values = JSON.stringify( getValues( inputs ) );
+        const params = {...requestParams, method: 'PUT', body: values };
+        const resp = await fetch( `/sheet/${name}`, params );
+        const json = await resp.json();
+        console.log( 'save', json );
+        if ( json.ok ) {
+            // refresh the names
+            await loadNames( listArea );
+            await downloadLinks();
+            await loadSheetChoice();
+        }
+    });
+
+    </script>
+    
+    
+  </body>
+</html>

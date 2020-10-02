@@ -1,0 +1,211 @@
+.login {
+  display: block;
+  padding-top: 100px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.login label{
+  color: #070606;
+}
+
+#spread-sheet{
+  margin-top: 50px;
+  margin-left: 100px;
+  
+ 
+}
+
+#new{
+  margin-top:100px;
+  margin-left: 100px;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #f5f1f1;s
+    /* border: solid;
+    border-color: #fffc28; */
+    box-shadow: 0 0 25px rgb(85, 207, 255);
+    overflow: hidden;
+    height:50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left:0;
+    z-index: 1;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #353131;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: inline-block;
+    left: 50%;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    /* Blue Background */
+    background-color: #8528ff;
+    color: white;
+  }
+  
+  .topnav a:hover:nth-child(odd) {
+    /* Pink Background */
+    background-color: #ff8928;
+    color: white;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  
+  .sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #191919;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .logo-img {
+    float: left;
+    padding-bottom: 32px;
+    height:inherit;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .sidenav a {
+    padding: 6px 32px 32px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: "Impact";
+    text-align: center;
+    vertical-align: middle;
+    color: #dbdbdb;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: white;
+    background: #6ac3ed;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  
+  canvas {
+    display: block;
+    /* border:1px solid #28a6ff; */
+    box-shadow: 0 0 15px rgba(40, 166, 255, 1);
+    background-color: #191919;
+    position: absolute;
+    margin-top: 7%;
+    margin-left: 15%;
+  }
+
+  
+  .title-img {
+    display: block;
+    width: 30%;
+    height: 30%;
+    padding-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .controls {
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  body {
+    background: linear-gradient(90deg, #94baf8 0%,#bee5f8,#daeff8 100%);
+    /* Default Font Color */
+    color: #383535;
+  }
+  
+  .leaderboard {
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #191919;
+    width: 30%;
+    border: 1px solid white;
+  
+    /* box-shadow: 0 0 15px rgba(40, 166, 255, 1); */
+  }
+  
+  .leaderboard th {
+    font-size: 20px;
+    height: 20px;
+    text-align: center;
+    border: 1px solid white;
+  }
+  
+  .leaderboard td {
+    font-size: 14px;
+    border: 1px solid white;
+    text-align: center;
+    /* border: 1px solid #191919;
+    padding: 10px; */
+  }
+  
+  .adminUserList {
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #191919;
+    width: 30%;
+    border: 1px solid white;
+  
+    /* box-shadow: 0 0 15px rgba(40, 166, 255, 1); */
+  }
+  
+  .adminUserList th {
+    font-size: 20px;
+    height: 20px;
+    text-align: center;
+    border: 1px solid white;
+  }
+  
+  .adminUserList td {
+    font-size: 14px;
+    border: 1px solid white;
+    text-align: center;
+    /* border: 1px solid #191919;
+    padding: 10px; */
+  }
+  
+  h3 {
+    margin-top: 10%;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-top: 10%;
+    text-align: center;
+  }
+  
+  p {
+    margin-top: 5%;
+    text-align: center;
+  }
+  

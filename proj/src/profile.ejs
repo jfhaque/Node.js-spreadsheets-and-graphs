@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Profile</title>
+  </head>
+  <body>
+
+    <div class="topnav">
+
+      <a href="/play">Edit Spreadsheets</a>
+      <a href="/profile">My Profile</a>
+      <a href="/admin">Admin</a>
+    </div>
+
+
+    <h1>Signed in, <%= user %> </h1>
+
+
+    <form class="login"  action="profile" method="POST">
+      <!-- Change password -->
+      <label>Enter a <i>new</i> password: </label>
+      <input type="password" name="password" placeholder="password">
+      <br><br>
+      <label>Re-enter the <i>new</i> password: </label>
+      <input type="password" name="password_verify" placeholder="password">
+      <br><br>
+      <input type="submit" name="submit" value="submit">
+    </form>
+
+  </body>
+</html>
